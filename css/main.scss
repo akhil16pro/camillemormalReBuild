@@ -1,0 +1,362 @@
+:root {
+  --brandColor: #fff;
+  --bg: #141414;
+}
+
+@font-face {
+  font-family: 's';
+  src: url('../fonts/s.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--bg);
+}
+body {
+  font-family: 's';
+
+  color: var(--brandColor);
+  font-size: 17px;
+
+  line-height: 1.5;
+  font-weight: normal;
+  background-color: var(--bg);
+  margin: 0;
+}
+
+a {
+  color: var(--brandColor);
+  text-decoration: none;
+}
+header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  width: 100%;
+  padding: 1.5rem;
+  z-index: 50;
+  ul {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    padding: 0;
+    list-style: none;
+    margin: 0;
+  }
+
+  .link {
+    transition: all 0.4s ease-in-out;
+    opacity: 0.5;
+    &:hover,
+    &.active {
+      opacity: 1;
+    }
+  }
+}
+
+main {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  h1 {
+    font-size: 8vw;
+  }
+}
+
+.page-transition-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 15;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  pointer-events: none;
+}
+.page-transition-container .page-transition {
+  transform: scaleX(0);
+  background: #2c2c2c;
+  height: 50%;
+}
+
+.mainImageWrap {
+  position: fixed;
+  inset: 0;
+  .imgBox {
+    position: absolute;
+    inset: 0;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.sliderTextWrap {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .inner {
+    width: 70%;
+    display: grid;
+    grid-template-columns: 22px 1fr 22px;
+    gap: 1rem;
+    align-items: center;
+  }
+  .textBox {
+    text-align: center;
+    font-size: 5.5556vh;
+    line-height: 1.2;
+    width: 100%;
+    height: 6.5vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .h-title {
+    position: absolute;
+    inset: 0;
+  }
+
+  .arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    svg {
+      width: 100%;
+      height: auto;
+      pointer-events: none;
+    }
+  }
+}
+
+.paginationWrap {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  font-size: 1.1rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 30%;
+    height: 2px;
+    background-color: var(--brandColor);
+  }
+
+  .cuItem {
+    aspect-ratio: 4/9;
+    overflow: hidden;
+    will-change: transform;
+    .inner {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      will-change: transform;
+    }
+    i {
+      aspect-ratio: 4/9;
+      font-style: normal;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+.bottomNav {
+  position: fixed;
+  bottom: 1rem;
+  left: 0;
+  z-index: 15;
+  display: grid;
+  padding-inline-start: 60%;
+  padding-inline-end: 2vw;
+}
+.smallthumb {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 0.2rem;
+  align-items: center;
+  .sItem {
+    display: flex;
+    cursor: pointer;
+    aspect-ratio: 3/2;
+    overflow: hidden;
+    &:hover {
+      img {
+        transform: scale(1.2);
+      }
+    }
+    img {
+      aspect-ratio: 3/2;
+      object-fit: cover;
+      width: 100%;
+      height: auto;
+      transition: all 0.4s linear;
+    }
+  }
+}
+
+.aboutSection {
+  position: relative;
+  display: grid;
+  align-items: flex-start;
+  grid-template-columns: 1fr;
+  gap: 15vw;
+  padding: 25vh 10vw 4rem;
+  padding-inline-start: 40vw;
+  // clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  .mainContent {
+    width: 100%;
+    display: grid;
+    gap: 14.5833vw;
+  }
+}
+
+.textBox {
+  p {
+    font-size: 2.8125vw;
+    line-height: 3.6458vw;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+.secctiontitle {
+  font-size: 2.8125vw;
+  line-height: 3.6458vw;
+  margin-bottom: 4.1667vw;
+}
+
+.conItem {
+  ul {
+    margin: 0;
+    margin-inline-start: 82px;
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 4.1667vw;
+
+    &.normalList {
+      gap: 0.8rem;
+    }
+  }
+
+  .t {
+    span {
+      display: block;
+      font-size: 2.2917vw;
+      line-height: 2.7604vw;
+      &.dec {
+        font-size: 1.25vw;
+        line-height: 1.6667vw;
+        color: #666667;
+
+        &.mTop {
+          margin-top: 0.9375vw;
+        }
+      }
+    }
+  }
+}
+.frameBox {
+  position: fixed;
+  left: 2.5vw;
+  top: 17.5vh;
+  width: calc(9.6354vw + 5vw);
+  aspect-ratio: 3/2;
+  border: 1.34px solid rgba(255, 255, 255, 0.2);
+  will-change: transform;
+}
+.smallNav {
+  display: grid;
+  gap: 2.8045vw;
+  width: 9.6354vw;
+  font-size: 0.5409vw;
+  line-height: 0.7011vw;
+  position: fixed;
+  left: 5vw;
+  top: 0;
+  padding-top: 20vh;
+  will-change: transform;
+  padding-bottom: 5rem;
+
+  .textBox {
+    p {
+      font-size: 0.5409vw;
+      line-height: 1.5;
+    }
+  }
+  .secctiontitle {
+    font-size: 0.5409vw;
+    line-height: 1.1;
+    margin-bottom: 0.8013vw;
+  }
+  .conItem {
+    ul {
+      margin-inline-start: 30px;
+      gap: 0.8013vw;
+      &.normalList {
+        gap: 0.05vw;
+      }
+    }
+    .t {
+      span {
+        font-size: 0.4407vw;
+        line-height: 0.5308vw;
+        &.mTop {
+          margin-top: 5px;
+          font-size: 0.2404vw;
+          line-height: 0.3205vw;
+        }
+      }
+    }
+  }
+}
