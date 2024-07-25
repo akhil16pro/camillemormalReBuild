@@ -39,6 +39,11 @@ body {
   background-color: var(--bg);
   margin: 0;
 }
+@media only screen and (max-width: 767px) {
+  body {
+    font-size: 14px;
+  }
+}
 
 a {
   color: var(--brandColor);
@@ -96,7 +101,7 @@ header .link:hover, header .link.active {
 }
 
 main {
-  min-height: 100vh;
+  min-height: 100svh;
   width: 100%;
   display: flex;
   -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
@@ -161,6 +166,17 @@ main h1 {
   gap: 1rem;
   align-items: center;
 }
+@media only screen and (max-width: 1024px) {
+  .sliderTextWrap .inner {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .sliderTextWrap .inner {
+    grid-template-columns: 15px 1fr 15px;
+    gap: 0.5rem;
+  }
+}
 .sliderTextWrap .textBox {
   text-align: center;
   font-size: 5.5556vh;
@@ -169,6 +185,12 @@ main h1 {
   height: 6.5vh;
   position: relative;
   overflow: hidden;
+}
+@media only screen and (max-width: 767px) {
+  .sliderTextWrap .textBox {
+    font-size: 4vh;
+    height: 4.5vh;
+  }
 }
 .sliderTextWrap .h-title {
   position: absolute;
@@ -202,6 +224,11 @@ main h1 {
   gap: 3rem;
   font-size: 1.1rem;
   opacity: 0;
+}
+@media only screen and (max-width: 767px) {
+  .paginationWrap {
+    font-size: 1rem;
+  }
 }
 .paginationWrap::before {
   content: "";
@@ -248,6 +275,12 @@ main h1 {
   padding-inline-end: 2vw;
   transform: translateY(3rem);
   opacity: 0;
+}
+@media only screen and (max-width: 767px) {
+  .bottomNav {
+    padding-inline-start: 2vw;
+    bottom: 5rem;
+  }
 }
 
 .domLoaded .bottomNav {
